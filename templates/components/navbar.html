@@ -5,17 +5,12 @@
             <a href="{% url "home" %}" class="text-decoration-none text-dark">BookStore</a>
         </h1>
         <a href="{% url "about" %}" class="text-decoration-none text-dark mx-4">About</a>
+        <a href="{% url "book_list" %}" class="text-decoration-none text-dark mx-4">Books</a>
     </div>
 
     {% if user.is_authenticated %}
         <div class="d-flex align-items-center">
             <p class="m-0 px-4 fs-5 fw-bold">Hi, {{user.username}}</p>
-            {% comment %} <form action="{% url "account_logout" %}" method="post" class="m-0">
-
-                {% csrf_token %}
-                <button class="btn btn-dark" type="submit">LogOut</button>
-
-            </form> {% endcomment %}
             <a href="{% url "account_logout" %}" class="btn btn-dark">LogOut</a>
         </div>
 
