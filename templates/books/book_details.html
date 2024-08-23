@@ -1,9 +1,39 @@
 {% extends "_base.html" %}
-
+{% load crispy_forms_tags %}
 {% block content %}
 
 <h1>{% block title %}{{book.title}}{% endblock title %}</h1>
 <p>{{book.author}}</p>
 <p>${{book.price}}</p>
+
+<div>
+    
+    <div class="row justify-content-center">
+        <div class="col-6 bg-white rounded p-3 border">
+            {% if user.is_authenticated %}
+                <p>Add new review</p>
+                <form action="" method="post">
+                    {% csrf_token %}
+                    {{form | crispy}}
+                    <button type="submit" class="btn btn-dark">Add new review</button>
+                </form>
+                {% else %}
+                <div class="text-center">
+                    <p>For add your review log in to your account</p>
+                    <a href="{% url "account_login" %}" class="btn btn-dark">Login now</a>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+    
+    <h3>Review's</h3>
+    <ul>
+
+        {% for review in book.reviews.all %}
+            <li>{{review.review}} - ({{review.author}})</li>
+        {% endfor %}
+
+    </ul>
+</div>
 
 {% endblock content %}
