@@ -160,7 +160,7 @@ pyvenv.cfg
 pip-selfcheck.json
 
 #docker
-# docker-compose.yml
+docker-compose-prod.yml
 # Dockerfile
 data
 

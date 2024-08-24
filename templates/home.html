@@ -3,6 +3,12 @@
 {% block content %}
 
     <h1>{% block title %}Home Page{% endblock title %}</h1>
-    <p>This is a TEXT for home page</p>
+    <div class="row ">
+        <div class="col-6">
+            <form action="{% url "search_results" %}" method="get">
+                <input type="text" name="q" class="form-control" placeholder="Search in books..." aria-label="Search">
+            </form>
+        </div>
+    </div>
     
 {% endblock content %}
