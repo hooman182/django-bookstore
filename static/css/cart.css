@@ -1,0 +1,140 @@
+.cart-table-wrapper {
+    display: flex;
+    justify-content: center;
+    margin: 2rem 0;
+}
+
+.cart-table {
+    width: 100%;
+    max-width: 1200px;
+}
+
+.cart-table table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.cart-table th, .cart-table td {
+    padding: 1.5rem;
+    text-align: left;
+}
+
+.cart-table th {
+    background-color: var(--light-color);
+    font-weight: 600;
+    color: var(--dark-text-color);
+}
+
+.cart-table tr {
+    background-color: var(--light-color);
+}
+
+.cart-table tr:hover {
+    background-color: #ffffff;
+}
+
+.product-info {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.product-image {
+    width: 80px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+.product-details {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.product-title {
+    font-size: 1.1rem;
+    color: var(--dark-text-color);
+}
+
+.product-author {
+    font-size: 0.9rem;
+    color: var(--light-text-color);
+}
+
+.quantity-controls {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.quantity-input {
+    width: 60px;
+    padding: 0.5rem;
+    text-align: center;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.cart-summary {
+    margin-top: 2rem;
+    padding: 2rem;
+    background-color: var(--light-color);
+    border-radius: 8px;
+}
+
+.summary-item {
+    display: flex;
+    justify-content: space-between;
+    margin: 1rem 0;
+    font-size: 1.1rem;
+}
+
+.summary-item.total {
+    font-weight: 600;
+    margin-top: 1.5rem;
+    border-top: 1px solid #ddd;
+    padding-top: 1rem;
+}
+
+.cart-actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.cart-actions .btn {
+    flex: 1;
+    padding: 0.8rem 1.5rem;
+    font-weight: 600;
+}
+
+.cart-empty {
+    text-align: center;
+    padding: 4rem 2rem;
+}
+
+.cart-empty-icon {
+    font-size: 4rem;
+    color: var(--accent-color);
+    margin-bottom: 2rem;
+}
+
+@media screen and (max-width: 768px) {
+    .cart-table-wrapper {
+        margin: 1rem 0;
+    }
+    
+    .cart-table {
+        max-width: 100%;
+    }
+    
+    .quantity-controls {
+        flex-direction: column;
+        gap: 0.25rem;
+    }
+    
+    .cart-actions {
+        flex-direction: column;
+    }
+}

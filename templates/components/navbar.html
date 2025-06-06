@@ -1,25 +1,129 @@
-<nav class="navbar container my-4 px-4 py-3 rounded-4 bg-white shadow d-flex justify-content-between align-items-center ">
+<div id="header-wrap">
+    <div class="top-content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="right-element">
+                        {% if user.is_authenticated %}
+                        <div class="d-flex align-items-center">
+                            <p class="m-0 px-4 fs-5 fw-bold">
+                                {{user.username}}
+                            </p>
+                        </div>
+                        {% else %}
+                        <a href="#" class="user-account for-buy"
+                            ><i class="icon icon-user"></i
+                            ><span>حساب کاربری</span></a
+                        >
+                        {% endif %}ٌ
 
-    <div class="d-flex align-items-center">
-        <h1 class="fs-4 rounded p-1 m-0">
-            <a href="{% url "home" %}" class="text-decoration-none text-dark">BookStore</a>
-        </h1>
-        <a href="{% url "about" %}" class="text-decoration-none text-dark mx-4">About</a>
-        <a href="{% url "book_list" %}" class="text-decoration-none text-dark mx-4">Books</a>
+                        <a href="#" class="cart for-buy">
+                            <i class="icon icon-clipboard"></i>
+                            <span>سبد خرید</span></a
+                        >
+                        <div class="action-menu">
+                            <div class="search-bar">
+                                <a
+                                    href="#"
+                                    class="search-button search-toggle"
+                                    data-selector="#header-wrap"
+                                >
+                                    <i class="icon icon-search"></i>
+                                </a>
+
+                                <form
+                                    action="{% url 'search_results' %}"
+                                    method="get"
+                                    class="search-box"
+                                    role="search"
+                                >
+                                    <input
+                                        type="text"
+                                        class="search-field text search-input"
+                                        placeholder="Search in books..."
+                                        aria-label="Search"
+                                    />
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
+    <!--top-content-->
 
-    {% if user.is_authenticated %}
-        <div class="d-flex align-items-center">
-            <p class="m-0 px-4 fs-5 fw-bold">Hi, {{user.username}}</p>
-            <a href="{% url "account_logout" %}" class="btn btn-dark">LogOut</a>
+    <header id="header">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-10">
+                    <nav id="navbar">
+                        <div class="main-menu stellarnav">
+                            <ul class="menu-list">
+                                <li class="menu-item active">
+                                    <a href="#home">خانه</a>
+                                </li>
+                                <li class="menu-item has-sub">
+                                    <a href="#pages" class="nav-link"
+                                        >فروشگاه</a
+                                    >
+                                    <ul>
+                                        <li>
+                                            <a href="index.html">سیستم‌ها</a>
+                                        </li>
+                                        <li><a href="index.html">بلاگ</a></li>
+                                        <li>
+                                            <a href="index.html">مقاله تکی</a>
+                                        </li>
+                                        <li>
+                                            <a href="index.html">فروشگاه ما</a>
+                                        </li>
+                                        <li>
+                                            <a href="index.html">محصول تکی</a>
+                                        </li>
+                                        <li>
+                                            <a href="index.html">Contact</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="menu-item">
+                                    <a href="#featured-books" class="nav-link"
+                                        >جدیدترین‌ها</a
+                                    >
+                                </li>
+                                <li class="menu-item">
+                                    <a href="#popular-books" class="nav-link"
+                                        >بهترین‌ها</a
+                                    >
+                                </li>
+                                <li class="menu-item">
+                                    <a href="#special-offer" class="nav-link"
+                                        >پیشنهادات</a
+                                    >
+                                </li>
+                                <li class="menu-item">
+                                    <a href="#latest-blog" class="nav-link"
+                                        >مقالات</a
+                                    >
+                                </li>
+                            </ul>
+
+                            <div class="hamburger">
+                                <span class="bar"></span>
+                                <span class="bar"></span>
+                                <span class="bar"></span>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+                <div class="col-md-2">
+                    <div class="main-logo">
+                        <a href="index.html"
+                            ><img src="images/main-logo.png" alt="logo"
+                        /></a>
+                    </div>
+                </div>
+            </div>
         </div>
-
-        {% else %}
-        
-        <div>
-            <a href="{% url "account_login" %}" class="btn btn-dark">Login</a>
-            <a href="{% url "account_signup" %}" class="btn btn-outline-dark">SignUp</a>
-        </div>
-
-    {% endif %}
-</nav>
+    </header>
+</div>

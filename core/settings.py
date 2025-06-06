@@ -1,15 +1,8 @@
 from pathlib import Path
-from re import T
-from telnetlib import LOGOUT
-from environs import Env
 import os 
-
-env = Env()
-env.read_env()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-
 
 
 SECRET_KEY = os.getenv('SECRET_KEY', 'cTQ2M0vt3gtjHgHdwrdYe3THUAgp64F_DL3dgywD27Y')
@@ -88,19 +81,18 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'core.wsgi.application'
 
-
 # Database
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.{}'.format(os.getenv('DATABASE_ENGINE', 'sqlite3')),
-        'NAME': os.getenv('DATABASE_NAME', 'hooman'),
-        'User': os.getenv('DATABASE_USERNAME', 'hooman'),
+        'NAME': os.getenv('DATABASE_NAME', 'booksaw'),
+        'USER': os.getenv('DATABASE_USERNAME', 'booksaw'),
         'PASSWORD': os.getenv('DATABASE_PASSWORD', '123456'),
-        'HOST': os.getenv('DATABASE_HOST', '127.0.0.1'),
+        'HOST': os.getenv('DATABASE_HOST', 'localhost'),
         'PORT': os.getenv('DATABASE_PORT', 1433)
     }
 }
-
 
 # Password validation
 AUTH_PASSWORD_VALIDATORS = [
@@ -148,7 +140,7 @@ LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'home'
 ACCOUNT_LOGOUT_REDIRECT = 'home'
 ACCOUNT_SESSION_REMEMBER = True
-ACCOUNT_SIGNUP_PASSWORD_ENTER_TWICE = False
+ACCOUNT_SIGNUP_PASSWORD_ENTER_TWICE = True
 
 ACCOUNT_USERNAME_REQUIRED = False
 ACCOUNT_AUTHENTICATION_METHOD = 'email'
@@ -158,7 +150,7 @@ ACCOUNT_UNIQUE_EMAIL = True
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
 CRISPY_TEMPLATE_PACK = 'bootstrap5'
 
-DEFAULT_FROM_EMAIL = 'admin@hoomanstore.com'
+DEFAULT_FROM_EMAIL = 'admin@hoomanmf.ir'
 
 # django-debug-toolbar
 import socket
